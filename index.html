@@ -8,8 +8,17 @@
         body{
             background-color: rgb(30, 35, 40);
         }
+        p {
+        display: block;
+        width: 1450px;
+        margin-left: auto;
+        margin-right: auto; 
+        font-size: 20px;
+        color: rgb(200, 200, 200);
+        }
         .filter-container {
             margin-bottom: 30px;
+            margin-left: 20px;
             padding: 15px;
             background-color: rgb(0, 0, 0);
             border-radius: 6px;
@@ -73,13 +82,14 @@
 </head>
 <body>
     
+
+
+    <!-- Nadpis UNIVBERZITA -->
     <h1 align="center" style="color:rgb(250, 250, 0); font-size: 50px;">UNIVERZITA</h1>
     <hr>
 
-    
-    <p1 align="center" style="color:rgb(200, 200, 200); font-size: 20px; margin-left: 10%"></p1>
 
-    <!-- Filter for all tables -->
+    <!-- Filter kategorií -->
     <div class="filter-container">
         <label class="zaklad" for="globalCategoryFilter">Filtrovat podle kategorie:</label>
         <select id="globalCategoryFilter" onchange="filterAllTables()">
@@ -90,6 +100,29 @@
             <option value="Válčení a obrana">Válčení a obrana</option>
         </select>
     </div>
+
+
+    <!-- Text popisek -->
+     <br>
+     <br>
+    <p>
+        Jelikož stránky Valyrie jsou na výzkum v univerzitě již zastaralé (ceny pár technologií se změnily, některé technologie se přesunuly na jiné levely, a hlavně přibylo pár nových), tak jsem se rozhodl vytvořit novou webovou stránku.
+    </p>
+    <p>
+        Na této stránce jsou všechny technologie v univerzitě rozdělené do pěti tabulek podle levelu univerzity, ve které se nachází. U každé technologie je uveden její název, obrázek, cena odhalení, cena výzkumu, účinek a všechny kategorie, do kterých spadá. 
+        <br>
+        Technologie jsou seřazeny podle ceny jejich výzkumu vzestupně. Kromě toho je na začátku stránky možnost filtrovat technologie podle kategorie.
+    </p>
+    <p>
+        Momentálně je stránka stále ve fázi vývoje, proto zde spousta technologií pořád chybí. Jestli chcete pomoct s doplněním chybějících technologií, našli nějakou chybu, nebo máte nějaké návrhy na vylepšení, tak mi neváhejte napsat. Rád bych, aby tato stránka byla co nejpřehlednější a nejaktuálnější, takže každá zpětná vazba je vítána.
+    </p>
+    <p>
+        Preferuji, když by jste mě kontaktovali skrz discord: <b style="color:rgb(120, 120, 0)">pajaking</b>
+        <br>
+        Pokud discord nemáte, přijímám také kontaktování přímo skrz hru na nick: <b style="color:rgb(120, 120, 0)">rucka</b>
+    </p>
+    <br>
+    <br>
 
 
     <!-- UNIVERZITA LEVEL 1 -->
