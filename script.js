@@ -43,42 +43,104 @@ function filterAllTables() {
     });
 }
 
-// Script for sorting all tables
-function sortAllTables() {
-    const sortValue = document.getElementById("sortSelect").value;
-    if (!sortValue) return; // Do nothing if default option is picked
+// Scripty pro tabulky
 
-    // Split the combined value into column index and direction order
-    const [colIndexStr, order] = sortValue.split("-");
-    const columnIndex = parseInt(colIndexStr);
+    // Pomocný script pro bezpečné získání textu z buňky bez ovlivnění tagy <a>, <img> a <br>
+    function getCellText(row, columnIndex) {
+        const cell = row.cells[columnIndex];
+        
+        // Pokud řadíme první sloupec (index 0), ignorujeme odkazy a obrázky
+        if (columnIndex === 0) {
+            const profileDiv = cell.querySelector('.cell-profile');
+            if (profileDiv) {
+                // Vytvoříme kopii divu v paměti, abychom neupravovali viditelnou stránku
+                const clone = profileDiv.cloneNode(true);
+                // Kompletně odstraníme tagy <a> (včetně odkazu a obrázku uvnitř)
+                clone.querySelectorAll('a').forEach(link => link.remove());
+                
+                // Vezmeme text, nahradíme konce řádků (způsobené <br>) mezerou a vyčistíme duplicitní mezery
+                return clone.textContent.replace(/\s+/g, ' ').trim();
+            }
+        }
+        
+        // Pro ostatní sloupce také vyčistíme bílé znaky a konce řádků
+        return cell.textContent.replace(/\s+/g, ' ').trim();
+    }
 
-    const tableBodies = document.querySelectorAll(".filterable-tbody");
+    // Funkce, která si při prvním načtení zapamatuje původní pořadí řádků
+    function initializeOriginalOrder() {
+        const tableBodies = document.querySelectorAll(".filterable-tbody");
+        tableBodies.forEach(tableBody => {
+            const rows = tableBody.querySelectorAll("tr");
+            rows.forEach((row, index) => {
+                // Pokud řádek ještě nemá uložený index, zapíšeme ho tam
+                if (!row.hasAttribute("data-original-index")) {
+                    row.setAttribute("data-original-index", index);
+                }
+            });
+        });
+    }
 
-    tableBodies.forEach(tableBody => {
-        const rows = Array.from(tableBody.querySelectorAll("tr"));
+    // Spustíme inicializaci hned, jak je skript připraven
+    initializeOriginalOrder();
 
-        rows.sort((rowA, rowB) => {
-            const cellA = rowA.cells[columnIndex].textContent.trim();
-            const cellB = rowB.cells[columnIndex].textContent.trim();
+    // Script for sorting all tables
+    function sortAllTables() {
+        // Pro případ, že by se tabulky generovaly dynamicky, pojistíme inicializaci indexů
+        initializeOriginalOrder();
 
-            let comparison = 0;
+        const sortValue = document.getElementById("sortSelect").value;
+        const tableBodies = document.querySelectorAll(".filterable-tbody");
 
-            // Numeric sorting logic for columns 1 and 2
-            if (columnIndex === 1 || columnIndex === 2) {
-                comparison = parseFloat(cellA) - parseFloat(cellB);
+        tableBodies.forEach(tableBody => {
+            const rows = Array.from(tableBody.querySelectorAll("tr"));
+
+            // KDYŽ JE VYBRÁNA VÝCHOZÍ MOŽNOST: Vrátíme tabulku do původního stavu
+            if (!sortValue) {
+                rows.sort((rowA, rowB) => {
+                    const indexA = parseInt(rowA.getAttribute("data-original-index"));
+                    const indexB = parseInt(rowB.getAttribute("data-original-index"));
+                    return indexA - indexB;
+                });
             } else {
-                // Alphabetical sorting logic for column 0
-                comparison = cellA.localeCompare(cellB);
+                // KLASICKÉ ŘAZENÍ PODLE VYBRANÉHO SLOUPCE
+                const [colIndexStr, order] = sortValue.split("-");
+                const columnIndex = parseInt(colIndexStr);
+
+                rows.sort((rowA, rowB) => {
+                    let cellA = getCellText(rowA, columnIndex);
+                    let cellB = getCellText(rowB, columnIndex);
+
+                    // Numerické řazení pro 2. a 3. sloupec (indexy 1 a 2)
+                    if (columnIndex === 1 || columnIndex === 2) {
+                        const valA = cellA === "" ? NaN : parseFloat(cellA);
+                        const valB = cellB === "" ? NaN : parseFloat(cellB);
+
+                        // Pokud jsou obě buňky prázdné, neměníme jejich pozici
+                        if (isNaN(valA) && isNaN(valB)) return 0;
+                        // Prázdné/neplatné buňky odsuneme vždy na konec tabulky
+                        if (isNaN(valA)) return 1;
+                        if (isNaN(valB)) return -1;
+
+                        const comparison = valA - valB;
+                        return order === "asc" ? comparison : -comparison;
+                    } else {
+                        // Abecední řazení pro 1. sloupec (index 0)
+                        if (cellA === "" && cellB === "") return 0;
+                        if (cellA === "") return 1;
+                        if (cellB === "") return -1;
+
+                        // localeCompare zajistí správné řazení včetně české diakritiky (Č, Š, Ž...)
+                        const comparison = cellA.localeCompare(cellB, 'cs');
+                        return order === "asc" ? comparison : -comparison;
+                    }
+                });
             }
 
-            // Invert layout if descending option was chosen
-            return order === "asc" ? comparison : -comparison;
+            // Přidáme seřazené řádky zpět do DOM struktury dané tabulky
+            rows.forEach(row => tableBody.appendChild(row));
         });
-
-        // Update the DOM container with new order
-        rows.forEach(row => tableBody.appendChild(row));
-    });
-}
+    }
 
 // Script for moving user on website by buttons
     // Počkejte, až se načte celá stránka

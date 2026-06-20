@@ -56,7 +56,7 @@
                 Zde je uveden seznam jednotek a počet bodů, které vám přidají do statistik. To se hodí, pokud se hráč chce umístit co nejvýše ve statictikách a získat co nejvíce zkušeností pro svého hrdinu.
             </p>
             <p id="uni-back">
-                Pro zjištění bližších informací o jednotce rozklikněte její obrázek.
+                Pro zjištění bližších informací o jednotce rozklikněte její obrázek. Informace psány pro jednotky na hodnosti 0.
             </p>
 
 
@@ -97,8 +97,8 @@
 
             <!-- Třídič tabulek -->
             <div class="filter-container-dark">
-                <label class="zaklad" for="sortCol" style="cursor: pointer;">Sort all by:</label>
-                <select id="sortCol" style="cursor: pointer;" onchange="sortAllTables()">
+                <label class="zaklad" for="sortCol" style="cursor: pointer;">Třídit tabulku podle:</label>
+                <select id="sortSelect" style="cursor: pointer;" onchange="sortAllTables()">
                     <option value="">-- Třídit Tabulku --</option>
                     <option value="0-asc">Název (A až Z)</option>
                     <option value="0-desc">Název (Z až A)</option>
@@ -116,26 +116,139 @@
         <!-- TABULKA JEDNOTKY -->
         <section>
             <div class="table-section">
-                <h2 id="univerzita-level-1" class="nadpis-univerzita">UNIVERZITA LEVEL 1</h2>
+                <h2 id="univerzita-level-1" class="nadpis-univerzita">TABULKA JEDNOTEK</h2>
 
                 <table class="filterable-table">
                     <thead>
                         <tr class="table-header">
-                            <th width="200" height="40" style="color:rgb(255, 255, 255); border: 1.5px solid white;">JEDNOTKA</th>
+                            <th width="125" height="40" style="color:rgb(255, 255, 255); border: 1.5px solid white;">JEDNOTKA</th>
                             <th width="300" height="40" style="color:rgb(255, 255, 255); border: 1.5px solid white;">BODY NA HODNOSTI 0</th>
                             <th width="300" height="40" style="color:rgb(255, 255, 255); border: 1.5px solid white;">BODY NA HODNOSTI 9&nbsp<img class="ikona-text" src="Jednotky/Images/r9.gif" alt="Image"></th>
-                            <th width="200" height="40" style="color:rgb(255, 255, 255); border: 1.5px solid white;">KATEGORIE</th>
+                            <th width="275" height="40" style="color:rgb(255, 255, 255); border: 1.5px solid white;">KATEGORIE</th>
                         </tr>
                     </thead>
-                    <tbody class="filtrable-tbody">
+                    <tbody class="filterable-tbody">
                         <tr>
                             <td class="zakladmale">
-                                <img src="Images UNI/sell_wood_6.gif" alt="Image"><br>Dřevo za 6
+                                <div class="cell-profile">
+                                    <a href="Jednotky/icm_1.html"><img class="ikona" src="Jednotky/Images Jednotky/icm_1.png" alt="Image"></a><br>Test
+                                </div>
                             </td>
-                            <td class="odhaleni">4.000</td>
-                            <td class="vyzkum">20.000</td>
+                            <td class="odhaleni">-</td>
+                            <td class="vyzkum">-</td>
                             <td class="zaklad">
-
+                                <span class="badge hrdinove">Hrdinové</span>
+                                <span class="badge lide">Lidé</span>
+                                <span class="badge bratrstvo">Černé bratrstvo</span>
+                                <span class="badge skreti">Skřeti</span>
+                                <span class="badge trpaslici">Trpaslíci</span>
+                                <span class="badge elfove">Elfové</span>
+                                <span class="badge zvirata">Zvířata</span>
+                                <span class="badge draci">Draci</span>
+                                <span class="badge kostlivci">Kostlivci</span>
+                                <span class="badge nekromanti">Nekromanti</span>
+                                <span class="badge obri">Obři</span>
+                                <span class="badge dablove">Ďáblové</span>
+                                <span class="badge elementalove">Elementálové</span>
+                                <span class="badge jine">Jiné</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="zakladmale">
+                                <div class="cell-profile">
+                                    <a href="Jednotky/icm_1.html"><img class="ikona" src="Jednotky/Images Jednotky/icm_1.png" alt="Image"></a><br>Hrdina
+                                </div>
+                            </td>
+                            <td class="odhaleni">-</td>
+                            <td class="vyzkum">-</td>
+                            <td class="zaklad">
+                                <span class="badge hrdinove">Hrdinové</span>
+                                <span class="badge lide">Lidé</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="zakladmale">
+                                <div class="cell-profile">
+                                    <a href="Jednotky/icm_2.html"><img class="ikona" src="Jednotky/Images Jednotky/icm_2.png" alt="Image"></a><br>Bílý Hrdina
+                                </div>
+                            </td>
+                            <td class="odhaleni">-</td>
+                            <td class="vyzkum">-</td>
+                            <td class="zaklad">
+                                <span class="badge hrdinove">Hrdinové</span>
+                                <span class="badge lide">Lidé</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="zakladmale">
+                                <div class="cell-profile">
+                                    <a href="Jednotky/icm_4.html"><img class="ikona" src="Jednotky/Images Jednotky/icm_4.png" alt="Image"></a><br>Zbrojnoš Bílý
+                                </div>
+                            </td>
+                            <td class="odhaleni">-</td>
+                            <td class="vyzkum">-</td>
+                            <td class="zaklad">
+                                <span class="badge lide">Lidé</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="zakladmale">
+                                <div class="cell-profile">
+                                    <a href="Jednotky/icm_5.html"><img class="ikona" src="Jednotky/Images Jednotky/icm_5.png" alt="Image"></a><br>Zbrojnoš Panoš
+                                </div>
+                            </td>
+                            <td class="odhaleni">-</td>
+                            <td class="vyzkum">-</td>
+                            <td class="zaklad">
+                                <span class="badge lide">Lidé</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="zakladmale">
+                                <div class="cell-profile">
+                                    <a href="Jednotky/icm_6.html"><img class="ikona" src="Jednotky/Images Jednotky/icm_6.png" alt="Image"></a><br>Zbrojnoš
+                                </div>
+                            </td>
+                            <td class="odhaleni">-</td>
+                            <td class="vyzkum">-</td>
+                            <td class="zaklad">
+                                <span class="badge lide">Lidé</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="zakladmale">
+                                <div class="cell-profile">
+                                    <a href="Jednotky/icm_7.html"><img class="ikona" src="Jednotky/Images Jednotky/icm_7.png" alt="Image"></a><br>Zbrojnoš Modrý
+                                </div>
+                            </td>
+                            <td class="odhaleni">-</td>
+                            <td class="vyzkum">-</td>
+                            <td class="zaklad">
+                                <span class="badge lide">Lidé</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="zakladmale">
+                                <div class="cell-profile">
+                                    <a href="Jednotky/icm_8.html"><img class="ikona" src="Jednotky/Images Jednotky/icm_8.png" alt="Image"></a><br>Zbrojnoš Zelenáč
+                                </div>
+                            </td>
+                            <td class="odhaleni">-</td>
+                            <td class="vyzkum">-</td>
+                            <td class="zaklad">
+                                <span class="badge lide">Lidé</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="zakladmale">
+                                <div class="cell-profile">
+                                    <a href="Jednotky/icm_11.html"><img class="ikona" src="Jednotky/Images Jednotky/icm_11.png" alt="Image"></a><br>Černý Král
+                                </div>
+                            </td>
+                            <td class="odhaleni">-</td>
+                            <td class="vyzkum">-</td>
+                            <td class="zaklad">
+                                <span class="badge bratrstvo">Černé bratrstvo</span>
                             </td>
                         </tr>
                     </tbody>
