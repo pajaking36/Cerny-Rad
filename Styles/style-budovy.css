@@ -97,7 +97,7 @@ nav li:first-child{
 @font-face {
     font-family: 'MojeAeiou';
     /* Cesta do složky fonts */
-    src: url('../Resources/fonts/_aeiou2U.ttf') format('truetype'); 
+    src: url('../Resources/fonts/aeiou2U.ttf') format('truetype'); 
     font-weight: normal;
     font-style: normal;
 }
