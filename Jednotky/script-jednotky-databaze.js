@@ -1827,7 +1827,6 @@ const items = [
         dodatecneInfo: "POZOR: Nejedná se o klasického černého dráčka.<br>Střelecké jednotky na něj mají bonus."
     },
     {
-        // ZAKLAD
         name: "Elfí vlk",
         image: "Jednotky/Images Jednotky/icm_190.png", // Obrázek v TABULCE JEDNOTEK
         gif: "Jednotky/Images Jednotky gifs/pmze_3_3.gif", // Gif ve vyskakovacím okně
