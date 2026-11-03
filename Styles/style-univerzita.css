@@ -210,10 +210,14 @@ select {
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    
+    /* FIX PRO MOBILY: Roztáhne rozmazání na 100% šířky displeje */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw; 
+    
     bottom: 0;
-    z-index: -1; /* Schová vrstvu s rozmazáním pod text nadpisu */
+    z-index: -1;
     
     /* ROZMAZÁNÍ POZADÍ */
     backdrop-filter: blur(60px);
