@@ -32,6 +32,7 @@ nav{
     overflow: hidden;
     position:fixed;
     top: 0;
+    z-index: 1000;
 }
 nav ul{
     width: 100%;
@@ -195,9 +196,32 @@ select {
 .nadpis-univerzita {
     color: rgb(200, 200, 0);
     font-size: 30px;
+    font-weight: bold;
     text-align: center;
-    margin-bottom: 30px;
-    margin-top: 30px;
+    padding-bottom: 35px;
+    padding-top: 25px;
+    position: sticky;
+    top: 45px;
+    z-index: 10;
+    margin: 0;
+}
+/* TATO NOVÁ VRSTVA SE POSTARÁ O ROZMAZÁNÍ POZADÍ, ANIŽ BY OVLIVNILA TEXT */
+.nadpis-univerzita::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Schová vrstvu s rozmazáním pod text nadpisu */
+    
+    /* ROZMAZÁNÍ POZADÍ */
+    backdrop-filter: blur(60px);
+    -webkit-backdrop-filter: blur(60px);
+    
+    /* POZVOLNĚJŠÍ NÁSTUP (Rozmazávat se začne plynule až v horní polovině) */
+    mask-image: linear-gradient(to top, transparent 1%, black 40%);
+    -webkit-mask-image: linear-gradient(to top, transparent 1%, black 40%);
 }
 .table-section {
     margin-bottom: 40px;
