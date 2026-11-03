@@ -175,7 +175,7 @@ function filterAllTables() {
             nadpis.style.cursor = 'pointer';
 
             const svgIkona = `
-                <svg class="ikona-nahoru" xmlns="http://w3.org" viewBox="0 0 24 24" height="28px" width="28px" fill="#e3e3e3">
+                <svg class="ikona-nahoru" xmlns="http://w3.org" viewBox="0 0 24 24" height="27px" width="27px" fill="#e3e3e3">
                 <path d="M9.9,19q-2.42,0-4.16-1.57T4,13.5T5.74,9.57T9.9,8h6.3L13.6,5.4L15,4l5,5l-5,5l-1.4-1.4L16.2,10H9.9q-1.57,0-2.74,1T6,13.5T7.16,16T9.9,17H17v2H9.9Z"/>
                 </svg>
             `;
