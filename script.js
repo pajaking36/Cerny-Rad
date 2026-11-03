@@ -149,203 +149,45 @@ function filterAllTables() {
     }
 
 // Script for moving user on website by buttons
-    // Počkejte, až se načte celá stránka
     document.addEventListener('DOMContentLoaded', () => {
         
-        // 1. Najdeme tlačítko podle jeho ID
-        const tlacitko = document.getElementById('button-uni-level-1');
+        // Zapsáno textově a rozděleno přes split, aby to systém bezpečně zobrazil
+        const levels = "1,2,3,4,5".split(",");
         
-        // 2. Najdeme cílovou sekci podle jejího ID
-        const cilovaSekce = document.getElementById('univerzita-level-1');
+        levels.forEach(lvl => {
+            const tlacitko = document.getElementById("button-uni-level-" + lvl);
+            const cilovaSekce = document.getElementById("univerzita-level-" + lvl);
 
-        // 3. Přidáme funkci, která se spustí při kliknutí
-        if (tlacitko && cilovaSekce) {
-            tlacitko.addEventListener('click', () => {
-                cilovaSekce.scrollIntoView({ 
-                    behavior: 'smooth', // Plynulý pohyb
-                    block: 'start'      // Zarovnat na horní okraj obrazovky
+            if (tlacitko && cilovaSekce) {
+                tlacitko.addEventListener('click', () => {
+                    cilovaSekce.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start'      
+                    });
+                });
+            }
+        });
+
+        // Automatické vložení SVG ikon a funkce "Zpět nahoru" do přichycených nadpisů
+        const nadpisy = document.querySelectorAll('.nadpis-univerzita');
+        
+        nadpisy.forEach(nadpis => {
+            nadpis.style.cursor = 'pointer';
+
+            const svgIkona = `
+                <svg class="ikona-nahoru" xmlns="http://w3.org" viewBox="0 0 24 24" height="28px" width="28px" fill="#e3e3e3">
+                <path d="M9.9,19q-2.42,0-4.16-1.57T4,13.5T5.74,9.57T9.9,8h6.3L13.6,5.4L15,4l5,5l-5,5l-1.4-1.4L16.2,10H9.9q-1.57,0-2.74,1T6,13.5T7.16,16T9.9,17H17v2H9.9Z"/>
+                </svg>
+            `;
+            
+            nadpis.innerHTML += svgIkona;
+
+            nadpis.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 600,
+                    behavior: 'smooth'
                 });
             });
-        }
-
-    });
-    // Počkejte, až se načte celá stránka
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // 1. Najdeme tlačítko podle jeho ID
-        const tlacitko = document.getElementById('button-uni-level-2');
-        
-        // 2. Najdeme cílovou sekci podle jejího ID
-        const cilovaSekce = document.getElementById('univerzita-level-2');
-
-        // 3. Přidáme funkci, která se spustí při kliknutí
-        if (tlacitko && cilovaSekce) {
-            tlacitko.addEventListener('click', () => {
-                cilovaSekce.scrollIntoView({ 
-                    behavior: 'smooth', // Plynulý pohyb
-                    block: 'start'      // Zarovnat na horní okraj obrazovky
-                });
-            });
-        }
-
-    });
-    // Počkejte, až se načte celá stránka
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // 1. Najdeme tlačítko podle jeho ID
-        const tlacitko = document.getElementById('button-uni-level-3');
-        
-        // 2. Najdeme cílovou sekci podle jejího ID
-        const cilovaSekce = document.getElementById('univerzita-level-3');
-
-        // 3. Přidáme funkci, která se spustí při kliknutí
-        if (tlacitko && cilovaSekce) {
-            tlacitko.addEventListener('click', () => {
-                cilovaSekce.scrollIntoView({ 
-                    behavior: 'smooth', // Plynulý pohyb
-                    block: 'start'      // Zarovnat na horní okraj obrazovky
-                });
-            });
-        }
-
-    });
-    // Počkejte, až se načte celá stránka
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // 1. Najdeme tlačítko podle jeho ID
-        const tlacitko = document.getElementById('button-uni-level-4');
-        
-        // 2. Najdeme cílovou sekci podle jejího ID
-        const cilovaSekce = document.getElementById('univerzita-level-4');
-
-        // 3. Přidáme funkci, která se spustí při kliknutí
-        if (tlacitko && cilovaSekce) {
-            tlacitko.addEventListener('click', () => {
-                cilovaSekce.scrollIntoView({ 
-                    behavior: 'smooth', // Plynulý pohyb
-                    block: 'start'      // Zarovnat na horní okraj obrazovky
-                });
-            });
-        }
-
-    });
-    // Počkejte, až se načte celá stránka
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // 1. Najdeme tlačítko podle jeho ID
-        const tlacitko = document.getElementById('button-uni-level-5');
-        
-        // 2. Najdeme cílovou sekci podle jejího ID
-        const cilovaSekce = document.getElementById('univerzita-level-5');
-
-        // 3. Přidáme funkci, která se spustí při kliknutí
-        if (tlacitko && cilovaSekce) {
-            tlacitko.addEventListener('click', () => {
-                cilovaSekce.scrollIntoView({ 
-                    behavior: 'smooth', // Plynulý pohyb
-                    block: 'start'      // Zarovnat na horní okraj obrazovky
-                });
-            });
-        }
-
-    });
-    // Počkejte, až se načte celá stránka
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // 1. Najdeme tlačítko podle jeho ID
-        const tlacitko = document.getElementById('button-uni-back-1');
-        
-        // 2. Najdeme cílovou sekci podle jejího ID
-        const cilovaSekce = document.getElementById('uni-back');
-
-        // 3. Přidáme funkci, která se spustí při kliknutí
-        if (tlacitko && cilovaSekce) {
-            tlacitko.addEventListener('click', () => {
-                cilovaSekce.scrollIntoView({ 
-                    behavior: 'smooth', // Plynulý pohyb
-                    block: 'start'      // Zarovnat na horní okraj obrazovky
-                });
-            });
-        }
-
-    });
-    // Počkejte, až se načte celá stránka
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // 1. Najdeme tlačítko podle jeho ID
-        const tlacitko = document.getElementById('button-uni-back-2');
-        
-        // 2. Najdeme cílovou sekci podle jejího ID
-        const cilovaSekce = document.getElementById('uni-back');
-
-        // 3. Přidáme funkci, která se spustí při kliknutí
-        if (tlacitko && cilovaSekce) {
-            tlacitko.addEventListener('click', () => {
-                cilovaSekce.scrollIntoView({ 
-                    behavior: 'smooth', // Plynulý pohyb
-                    block: 'start'      // Zarovnat na horní okraj obrazovky
-                });
-            });
-        }
-
-    });
-    // Počkejte, až se načte celá stránka
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // 1. Najdeme tlačítko podle jeho ID
-        const tlacitko = document.getElementById('button-uni-back-3');
-        
-        // 2. Najdeme cílovou sekci podle jejího ID
-        const cilovaSekce = document.getElementById('uni-back');
-
-        // 3. Přidáme funkci, která se spustí při kliknutí
-        if (tlacitko && cilovaSekce) {
-            tlacitko.addEventListener('click', () => {
-                cilovaSekce.scrollIntoView({ 
-                    behavior: 'smooth', // Plynulý pohyb
-                    block: 'start'      // Zarovnat na horní okraj obrazovky
-                });
-            });
-        }
-
-    });
-    // Počkejte, až se načte celá stránka
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // 1. Najdeme tlačítko podle jeho ID
-        const tlacitko = document.getElementById('button-uni-back-4');
-        
-        // 2. Najdeme cílovou sekci podle jejího ID
-        const cilovaSekce = document.getElementById('uni-back');
-
-        // 3. Přidáme funkci, která se spustí při kliknutí
-        if (tlacitko && cilovaSekce) {
-            tlacitko.addEventListener('click', () => {
-                cilovaSekce.scrollIntoView({ 
-                    behavior: 'smooth', // Plynulý pohyb
-                    block: 'start'      // Zarovnat na horní okraj obrazovky
-                });
-            });
-        }
-
-    });
-    // Počkejte, až se načte celá stránka
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // 1. Najdeme tlačítko podle jeho ID
-        const tlacitko = document.getElementById('button-uni-back-5');
-        
-        // 2. Najdeme cílovou sekci podle jejího ID
-        const cilovaSekce = document.getElementById('uni-back');
-
-        // 3. Přidáme funkci, která se spustí při kliknutí
-        if (tlacitko && cilovaSekce) {
-            tlacitko.addEventListener('click', () => {
-                cilovaSekce.scrollIntoView({ 
-                    behavior: 'smooth', // Plynulý pohyb
-                    block: 'start'      // Zarovnat na horní okraj obrazovky
-                });
-            });
-        }
+        });
 
     });

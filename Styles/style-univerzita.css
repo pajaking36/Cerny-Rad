@@ -294,3 +294,17 @@ section{
     background-color: rgb(230, 230, 0);
     transition: background-color 0.2s ease; /* Makes the highlight smooth */
 }
+/* Stylizace šipky u nadpisů levelů univerzity */
+.ikona-nahoru {
+    fill: rgb(200, 200, 0);
+    margin-left: 10px;
+    display: inline-block; 
+    transition: transform 0.2s ease, fill 0.2s ease; 
+}
+.nadpis-univerzita:hover {
+    color: rgb(230, 230, 0);
+}
+.nadpis-univerzita:hover .ikona-nahoru {
+    fill: rgb(230, 230, 0);
+    transform: scale(1.1);
+}
